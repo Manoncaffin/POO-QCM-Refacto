@@ -1,6 +1,7 @@
 <?php
 include_once('./Question.php');
 include_once('./Answer.php');
+include_once('../index.php');
 
 // Un QCM regroupe l’ensemble des questions composant le quiz et la méthode qui permet d’afficher 
 // toutes les questions dans notre HTML.

@@ -1,6 +1,7 @@
 <?php
 include_once('./Qcm.php');
 include_once('./Answer.php');
+include_once('../index.php');
 
 // Une Question contient un corps sous forme de texte et plusieurs Answers ainsi que l’explication 
 // de la bonne réponse.
