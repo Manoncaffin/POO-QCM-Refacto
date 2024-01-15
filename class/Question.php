@@ -6,47 +6,41 @@ include_once('../index.php');
 // Une Question contient un corps sous forme de texte et plusieurs Answers ainsi que l’explication 
 // de la bonne réponse.
 
-// class objet avec ses propriétés
-class Question {
-    private $text;
-    private $answers;
-    private $explications;
-    // méthode qui permet d'afficher la question et les choix possibles
-    public function __construct($text, $answers, $explications) {
-        $this->text = $text;
-        $this->answers = $answers;
-        $this->explications = $explications;
+class Question
+{
+    private string $title;
+    private array $answers = [];
+    private string $explanation;
+
+    public function __construct($title)
+    {
+        $this->title = $title;
     }
 
-    public function setText($text) {
-        $this->text = $text;
+    public function addAnswer(Answer $answer) : void
+    {
+        $this->answers[] = $answer;
     }
 
-    public function getText() {
-        return $this->text;
+    public function setExplanation($explanation) : void
+    {
+        $this->explanation = $explanation;
     }
 
-    public function setAnswers($answers) {
-        $this->answers = $answers;
+    public function getTitle() : string
+    {
+        return $this->title;
     }
 
-    public function getAnswers() {
+    public function getAnswers() : array
+    {
         return $this->answers;
     }
 
-    public function setExplications() {
-        return $this->explications;
+    public function getExplanation() : string
+    {
+        return $this->explanation;
     }
-
-    public function getExplications() {
-        return $this->explications;
-    }
-
-    public function addQuestion($text) {
-        $this->text = $text;
-    }
-
-    }
-
+}
 
 ?>
