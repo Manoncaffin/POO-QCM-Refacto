@@ -1,8 +1,5 @@
 <?php
-// include_once('./Qcm.php');
-// include_once('./Answer.php');
-// include_once('../index.php');
-
+require_once('./utils/database_connect.php');
 // Une Question contient un corps sous forme de texte et plusieurs Answers ainsi que l’explication 
 // de la bonne réponse.
 
@@ -13,30 +10,36 @@ class Question
     private string $explanation;
     private int $id;
 
-    public function __construct($question)
+    public function __construct(array $data)
     {
-        $this->question = $question;
+        $this->question = $data['id'];
+        $this->question = $data['question'];   
+        $this->question = $data['explanation'];
     }
 
-    public function addAnswer(Answer $answer) : void
+    public function addAnswer(Answer $answer): void
     {
         $this->answers[] = $answer;
     }
 
-    public function setExplanation($explanation) : void
+    public function setExplanation($explanation): void
     {
         $this->explanation = $explanation;
     }
 
-    public function getAnswers() : array
+    public function getAnswers(): array
     {
         return $this->answers;
     }
 
-    public function getExplanation() : string
+    public function getExplanation(): string
     {
         return $this->explanation;
     }
-}
 
-?>
+    public function getId() : int 
+    {
+        return $this->id;
+    }
+
+}

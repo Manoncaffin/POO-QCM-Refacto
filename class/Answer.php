@@ -1,22 +1,27 @@
 <?php
+require_once('./utils/database_connect.php');
 
-// class objet avec ses propriétés
 class Answer
 {
     private string $content;
-
     private bool $isCorrect;
-    const BONNE_REPONSE = true;
 
-    public function __construct($content, $isCorrect = false)
+    public function __construct(array $data)
     {
-        $this->content = $content;
-        $this->isCorrect = $isCorrect;
+        // Ma classe Answer est instanciée avec mes données de la BDD
+        // c'est devenu une entité
+        $this->content = $data['content_answer'];
+        $this->isCorrect = $data['is_correct'];
     }
 
-    public function getContent() : string
+    public function getContent(): string
     {
         return $this->content;
+    }
+
+    public function isCorrect(): bool
+    {
+        return $this->isCorrect;
     }
 }
 

@@ -23,7 +23,10 @@ require_once ('./utils/database_connect.php');
 // $qcm->addQuestion($question1);
 
 // Exercice 2
+// $db = new PDO();
 $qcm = new Qcm($db);
+$qcm->getQuestions();
+$qcm->generate();
 
 
 ?>
